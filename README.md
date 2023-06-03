@@ -1,4 +1,5 @@
 # JWT Manager Helm Chart
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/jwt-manager)](https://artifacthub.io/packages/search?repo=jwt-manager)
 
 The JWT Manager Helm Chart is a Kubernetes chart that provides a custom resource definition (CRD) for managing JSON Web Tokens (JWTs) and their signers in your Kubernetes cluster. It allows you to create and manage JWTs, and handles the signing process using various encryption algorithms.
 
