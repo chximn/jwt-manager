@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ .Chart.Name }}-cluster-role
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["create", "get", "delete", "patch", "update"]
+  - apiGroups: [""]
+    resources: ["configMap"]
+    verbs: ["get"]
+  - apiGroups: ["k8s.chximn.pro"]
+    resources: ["jwts", "jwt-signers"]
+    verbs: ["watch", "get", "list", "patch"]
+  - apiGroups: [""]
+    resources: [events]
+    verbs: [create]

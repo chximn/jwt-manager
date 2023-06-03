@@ -1,0 +1,57 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: jwts.{{ .Values.apiGroup.name }}
+  finalizers: []
+spec:
+  group: {{ .Values.apiGroup.name }}
+  scope: Namespaced
+  versions:
+    - name: {{ .Values.apiGroup.version }}
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              required: ['signer', 'data', 'secretName', 'expiryTime']
+              properties:
+                signer:
+                  type: string
+                data:
+                  type: object
+                  additionalProperties: true
+                secretName:
+                  type: string
+                expiryTime:
+                  type: object
+                  properties:
+                    days:
+                      type: integer
+                    hours:
+                      type: integer
+                    minutes:
+                      type: integer
+                  oneOf:
+                    - required: ['days']
+                    - required: ['hours']
+                    - required: ['minutes']
+                resignBefore:
+                  type: object
+                  properties:
+                    days:
+                      type: integer
+                    hours:
+                      type: integer
+                    minutes:
+                      type: integer
+                  oneOf:
+                    - required: ['days']
+                    - required: ['hours']
+                    - required: ['minutes']
+  names:
+    kind: JWT
+    singular: jwt
+    plural: jwts

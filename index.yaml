@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  jwt-manager:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-06-04T01:40:04.0296809+02:00"
+    description: JWT Manager
+    digest: caf7b606bfd2019274784d4593047212ca428c5aaab23f8d21576ddbd81c64a6
+    name: jwt-manager
+    type: application
+    urls:
+    - charts/jwt-manager-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-04T01:40:04.0270484+02:00"

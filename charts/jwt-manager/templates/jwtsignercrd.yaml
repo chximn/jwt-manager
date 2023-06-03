@@ -1,0 +1,57 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: jwt-signers.{{ .Values.apiGroup.name }}
+  finalizers: []
+spec:
+  group: {{ .Values.apiGroup.name }}
+  scope: Namespaced
+  versions:
+    - name: {{ .Values.apiGroup.version }}
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              required: ['algorithm', 'key']
+              properties:
+                algorithm:
+                  type: string
+                  enum: [HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512, PS256, PS384, PS512, RSA-OAEP, RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, dir, A128KW, A192KW, A256KW, A128GCMKW, A192GCMKW, A256GCMKW, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, ECDH-ES+A128GCMKW, ECDH-ES+A192GCMKW, ECDH-ES+A256GCMKW]
+                key:
+                  type: object
+                  properties:
+                    secret:
+                      type: object
+                      properties:
+                        namespace:
+                          type: string
+                        name:
+                          type: string
+                        key:
+                          type: string
+
+                    configMap:
+                      type: object
+                      properties:
+                        namespace:
+                          type: string
+                        name:
+                          type: string
+                        key:
+                          type: string
+
+                    value:
+                      type: string
+
+                  oneOf:
+                    - required: ['secret']
+                    - required: ['configMap']
+                    - required: ['value']
+  names:
+    kind: JWTSigner
+    singular: jwt-signer
+    plural: jwt-signers

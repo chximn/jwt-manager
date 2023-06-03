@@ -1,0 +1,5 @@
+python-jose[cryptography]
+httpx
+kopf
+kubernetes
+pytz
