@@ -3,12 +3,12 @@ entries:
   jwt-manager:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-06-04T02:11:03.6415224+02:00"
+    created: "2023-06-04T02:29:26.502955+02:00"
     description: JWT Manager
-    digest: 062614a3b9b57df6b5735fde093517c839843693283e1bf4b812fb5efb5b3303
+    digest: 8dec90d1de1af3cb22f84b037399ea1189542e16472678a5261a2f642dada88b
     name: jwt-manager
     type: application
     urls:
     - charts/jwt-manager-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-04T02:11:03.6409962+02:00"
+generated: "2023-06-04T02:29:26.502955+02:00"
