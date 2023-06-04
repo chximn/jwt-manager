@@ -34,7 +34,7 @@ The JWT CRD allows you to create, update, and delete JWTs. It has the following 
 * `data`: The data to include in the JWT payload.
 * `secretName`: The name of the Kubernetes Secret to store the generated JWT.
 * `expiryTime`: The expiration time for the JWT. It can be specified in terms of days, hours, or minutes.
-* `resignBefore`: The automation resign time for the JWT. It can be specified in terms of days, hours, or minutes.
+* `resignBefore`: The automation resigning time for the JWT. It can be specified in terms of days, hours, or minutes.
 
 Example JWT resource:
 
